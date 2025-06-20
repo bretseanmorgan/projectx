@@ -68,7 +68,7 @@ RSpec.describe "managing projects", js: true do
       fill_in "project[title]", with: "Super Sub Project"
       click_button "Create"
       expect(page).to have_content "Project created!"
-      expect(current_path).to eq project_path(Project.last)
+      expect(current_path).to eq project_path(project.id)
     end
 
     it "lists available sub projects with a link" do
