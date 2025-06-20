@@ -63,7 +63,7 @@ RSpec.describe ProjectsController, type: :controller do
       it "redirects to the projects" do
         post :create, params: {project: valid_params}
 
-        expect(response).to redirect_to "/projects"
+        expect(response).to redirect_to project_path(Project.last)
       end
     end
 
