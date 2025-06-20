@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_project, only: [:show, :edit, :update, :sort, :sort_stories, :destroy, :new_sub_project]
+  before_action :authenticate_admin, only: [:create]
 
   def index
     @projects = Project.parents

@@ -1,7 +1,8 @@
 require "rails_helper"
 
 RSpec.describe "managing projects", js: true do
-  let(:user) { create(:user) }
+  let(:user) { create(:user, :admin) }
+  #TODO - add in test coverage for non-admin users
   let(:project) { create(:project) }
 
   before do

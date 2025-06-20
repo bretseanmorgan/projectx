@@ -7,6 +7,13 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def authenticate_admin
+    if current_user && !current_user.admin?
+      flash[:error] = "You are not authorized to perform this action."
+      redirect_back(fallback_location: root_path)
+    end
+  end
+
   def user_not_authorized
     flash[:error] = "You are not authorized to perform this action."
     redirect_back(fallback_location: root_path)
